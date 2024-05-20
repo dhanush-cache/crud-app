@@ -1,0 +1,75 @@
+JFDML JFormDesigner: "8.2.2.0.382" Java: "17-internal" encoding: "UTF-8"
+
+new FormModel {
+	contentType: "form/swing"
+	root: new FormRoot {
+		add( new FormWindow( "javax.swing.JFrame", new FormLayoutManager( class org.jdesktop.layout.GroupLayout ) {
+			"$horizontalGroup": "par l {seq l {space :::p, comp leftPanel:::p::p, space :::p, comp rightPanel:::::x, space :::p}}"
+			"$verticalGroup": "par l {seq l {space :::p, par l {comp leftPanel:::::x, comp rightPanel:::::x}, space :::p}}"
+		} ) {
+			name: "this"
+			add( new FormContainer( "javax.swing.JPanel", new FormLayoutManager( class org.jdesktop.layout.GroupLayout ) {
+				"$horizontalGroup": "par l {seq {space :::p, par l {comp searchField::::228:x, comp listPanel::::228:x}, space :::p}}"
+				"$verticalGroup": "par l {seq l {space :::p, comp searchField:::p:46:p, space u:::p, comp listPanel::::279:x, space :::p}}"
+			} ) {
+				name: "leftPanel"
+				"border": new javax.swing.border.LineBorder( sfield java.awt.Color black, 1, false )
+				add( new FormComponent( "javax.swing.JTextField" ) {
+					name: "searchField"
+					addEvent( new FormEvent( "java.awt.event.KeyListener", "keyReleased", "searchFieldKeyReleased", true ) )
+				} )
+				add( new FormContainer( "javax.swing.JScrollPane", new FormLayoutManager( class javax.swing.JScrollPane ) ) {
+					name: "listPanel"
+					add( new FormComponent( "javax.swing.JList" ) {
+						name: "searchResults"
+						addEvent( new FormEvent( "javax.swing.event.ListSelectionListener", "valueChanged", "searchResultsValueChanged", true ) )
+					} )
+				} )
+			} )
+			add( new FormContainer( "javax.swing.JPanel", new FormLayoutManager( class org.jdesktop.layout.GroupLayout ) {
+				"$horizontalGroup": "par l {seq {par l {seq t {space ::282:x, comp idLabel:::p:50:p}, seq {space :p:27:p, par l {seq {comp emailLabel:::p:50:p, space u:::p, comp emailField:::p:235:p}, seq {comp nameLabel:::p:50:p, space u:::p, comp nameField:::p:235:p}, seq l {comp phoneLabel:::p:50:p, space u:::p, comp phoneField:::p:235:p}}, space :0:8:x}, seq l {space :p:46:p, comp addButton:::p:99:p, space ::50:x, comp removeButton:::p:99:p, space :p:38:p}}, space :::p}}"
+				"$verticalGroup": "par l {seq l {space :p:15:p, comp idLabel:::p:30:p, space :p:33:p, par b {comp nameLabel::b:p:30:p, comp nameField::b:p:30:p}, space :p:44:p, par b {comp phoneLabel::b:p:30:p, comp phoneField::b:p:30:p}, space :p:48:p, par b {comp emailLabel::b:p:30:p, comp emailField::b:p:30:p}, space :p:31:p, par b {comp addButton::b:p::p, comp removeButton::b:p::p}, space ::30:x}}"
+			} ) {
+				name: "rightPanel"
+				add( new FormComponent( "javax.swing.JLabel" ) {
+					name: "nameLabel"
+					"text": "Name:"
+				} )
+				add( new FormComponent( "javax.swing.JLabel" ) {
+					name: "phoneLabel"
+					"text": "Phone:"
+				} )
+				add( new FormComponent( "javax.swing.JLabel" ) {
+					name: "emailLabel"
+					"text": "Email:"
+				} )
+				add( new FormComponent( "javax.swing.JTextField" ) {
+					name: "nameField"
+				} )
+				add( new FormComponent( "javax.swing.JTextField" ) {
+					name: "phoneField"
+				} )
+				add( new FormComponent( "javax.swing.JTextField" ) {
+					name: "emailField"
+				} )
+				add( new FormComponent( "javax.swing.JLabel" ) {
+					name: "idLabel"
+					"text": "ID"
+				} )
+				add( new FormComponent( "javax.swing.JButton" ) {
+					name: "addButton"
+					"text": "Create"
+					addEvent( new FormEvent( "java.awt.event.ActionListener", "actionPerformed", "addStudent", true ) )
+				} )
+				add( new FormComponent( "javax.swing.JButton" ) {
+					name: "removeButton"
+					"text": "Delete"
+					addEvent( new FormEvent( "java.awt.event.ActionListener", "actionPerformed", "removeStudent", true ) )
+				} )
+			} )
+		}, new FormLayoutConstraints( null ) {
+			"location": new java.awt.Point( 0, 0 )
+			"size": new java.awt.Dimension( 600, 400 )
+		} )
+	}
+}
