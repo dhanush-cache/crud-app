@@ -1,29 +1,46 @@
-from pathlib import Path
+import random
+
 from faker import Faker
-import sqlite3
+import mysql.connector as sql
 
-fake = Faker()
 
-Path("app/college.db").unlink()
-conn = sqlite3.connect("app/college.db")
+def number():
+    x = random.randint(200, 999)
+    y = random.randint(1000, 9999)
+    return f"({x}) {x}-{y}"
+
+
+conn = sql.connect(
+    host="localhost",
+    user="root",
+    password="1234",
+    database="college"
+)
 cursor = conn.cursor()
 
-query = """CREATE TABLE IF NOT EXISTS students (
-id INTEGER PRIMARY KEY,
-name TEXT,
-phone TEXT,
-email TEXT
-)"""
+query = "DROP TABLE IF EXISTS students"
 cursor.execute(query)
 
+query = """CREATE TABLE students (
+    id INT PRIMARY KEY AUTO_INCREMENT,
+    name VARCHAR(50),
+    phone VARCHAR(15),
+    email VARCHAR(50)
+)"""
 
-for _ in range(100):
-    if _ % 100 == 0:
-        print(_)
+cursor.execute(query)
+
+entries = 100
+fake = Faker()
+query = "INSERT INTO students (name, phone, email) VALUES (%s, %s, %s)"
+
+for i in range(entries):
+    print("Inserting row: ", i)
+
     name = fake.name()
-    phone = fake.phone_number()
+    phone = number()
     email = fake.email()
-    query = "INSERT INTO students (name, phone, email) VALUES (?, ?, ?)"
+
     values = (name, phone, email)
     cursor.execute(query, values)
 

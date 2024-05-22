@@ -17,7 +17,7 @@
   "code-runner.saveAllFilesBeforeRun": true,
   "code-runner.showExecutionMessage": false,
   "code-runner.executorMap": {
-    "python": "python3",
+    "python": "python",
     "c": "cmake --build build > /dev/null && build/dhanush",
     "cpp": "cmake --build build > /dev/null && build/dhanush",
     "java": "cmake --build target > /dev/null && java -cp target/CMakeFiles/JavaProject.dir/ com.package.Main"
@@ -35,5 +35,7 @@
   "[java]": {
     "editor.defaultFormatter": "redhat.java"
   },
-  "java.format.settings.url": "https://raw.githubusercontent.com/google/styleguide/gh-pages/eclipse-java-google-style.xml"
+  "java.format.settings.url": "https://raw.githubusercontent.com/google/styleguide/gh-pages/eclipse-java-google-style.xml",
+  "python.analysis.typeCheckingMode": "basic",
+  "python.analysis.autoImportCompletions": true
 }
